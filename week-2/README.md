@@ -326,6 +326,6 @@ We will explore main files required to do p1b.
 Create a hello-world syscall and call it from a new user application. 
 Hint: Check `kill`
 
-Resources:
+## Resources:
 
 - Xv6 [Book](https://pdos.csail.mit.edu/6.828/2014/xv6/book-rev8.pdf)
