@@ -1,6 +1,7 @@
 # COMP SCI 537 Discussion Week 3
 
 The plan for this week:
+- Way to pass struct from user program to syscall - https://github.com/himanshusagar/xv6/commit/c38a44f061b0f8b721219355b8f5a3e2281ef380
 - Recap Syscalls 
 - Scheduler Logic in xv6
 - Shell Overview
