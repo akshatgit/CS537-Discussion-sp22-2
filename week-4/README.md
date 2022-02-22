@@ -263,8 +263,65 @@ Again, you should read the [document](https://man7.org/linux/man-pages/man2/dup2
 
 `Note`, piping is actually also implemented in a similar way.
 
-### Linked List Review for Alias
+### Linked List ( Review for Alias )
 
+A linked list is a linear data structure where each element is a separate object.
+Linked list elements are not stored at contiguous location; the elements are linked using pointers.
+
+Each node of a list is made up of two items - the data and a reference to the next node. The last node has a reference to null. 
+The entry point into a linked list is called the head of the list. It should be noted that head is not a separate node, but the reference to the first node. If the list is empty then the head is a null reference.
+
+
+
+```C
+struct ListNode
+{
+  int val;
+  struct ListNode *next;
+};
+```
+OR you could use typedef and avoid writing struct everytime...
+
+```C
+typedef struct _ListNode
+{
+  int val;
+  struct _ListNode *next;
+}ListNode;
+```
+
+| Operations       | Steps Involved                                                  |
+|------------------|-----------------------------------------------------------------|
+| Add node to list | 1) Look for next available spot 2) Add node 3) Adjust pointers. |
+| Remove from list | 2) Look for node-to-be-deleted 2) Free node 3) Adjust pointers. |
+
+Source : [InterviewBit](https://www.interviewbit.com/courses/programming/topics/linked-lists/)
 ### Some Imp C Functions
-- strtok
-- strdup
+
+1. **StrTok**
+
+The C library function char *strtok(char *str, const char *delim) breaks string str into a series of tokens using the delimiter delim.
+
+```C
+/* get the first token */
+   token = strtok(str, delim);
+   
+   /* walk through other tokens */
+   while( token != NULL ) {
+      printf( " %s\n", token );
+    
+      token = strtok(NULL, delim);
+   }
+```
+Source : [TutorialsPoint](https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
+
+2. **StrDup**
+
+The function strdup() is used to duplicate a string. It returns a pointer to null-terminated byte string.
+
+```C
+  copy_str = strdup(source_str);
+```
+
+Source : [TutorialsPoint](https://www.tutorialspoint.com/strdup-and-strdndup-in-c-cplusplus)
+
