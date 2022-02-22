@@ -9,7 +9,7 @@
 
 
 ## Lottery Scheduler
-Processes are scheduled in a random manner. Each process is assigned a probability, and scheduler picks a random number to schedule a process from the pool of READY processes.
+Processes are assigned a subset of the tickets. Each process is assigned a probability, and scheduler picks a random number to schedule a process from the pool of READY processes.
 
 For e.g. We have 5 processes:
 - Process A (p=0.1): 0-9 tickets
@@ -35,7 +35,7 @@ Now consider the following scheduler scenario:
 | t = 8      | 66       | C|
 | t = 9      | 5       | A|
 
-
+All the processes are alloted time in proportion to the tickets they were alloted. This allotment may not be exactly proportional for all instances of lottery scheduler, but approximately it will show the proportion of processes' tickets alloted.
 
 ## Shell 
 ### File Descriptor for redirection
