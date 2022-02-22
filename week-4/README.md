@@ -1,10 +1,41 @@
 # COMP SCI 537 Discussion Week 4
 
 ## Topics:
+- Lottery Scheduler
 - Shell Continued 
     - File Descriptor for redirection
     - Linked list review
     - Important C libraries
+
+
+## Lottery Scheduler
+Processes are scheduled in a random manner. Each process is assigned a probability, and scheduler picks a random number to schedule a process from the pool of READY processes.
+
+For e.g. We have 5 processes:
+- Process A (p=0.1): 0-9 tickets
+- Process B (p=0.2): 10-29 tickets
+- Process C (p=0.4): 30-69 tickets
+- Process D (p=0.1): 70-79 tickets
+- Process E (p=0.2): 80-99 tickets
+
+Total tickets: 100
+
+Now consider the following scheduler scenario:
+
+
+| Time      | Ticket Number | Process scheduled |
+| ----------- | ----------- |-----|
+| t = 1      | 11       | B|
+| t = 2      | 32       | C|
+| t = 3      | 45       | C|
+| t = 4      | 52       | C|
+| t = 5      | 83       | E|
+| t = 6      | 78       | D|
+| t = 7      | 88       | E|
+| t = 8      | 66       | C|
+| t = 9      | 5       | A|
+
+
 
 ## Shell 
 ### File Descriptor for redirection
