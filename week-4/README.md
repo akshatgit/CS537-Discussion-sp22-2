@@ -2,9 +2,9 @@
 
 ## Topics:
 - Shell Continued 
-    -- File Descriptor for redirection
-    -- Linked list review
-    -- Important C libraries
+    - File Descriptor for redirection
+    - Linked list review
+    - Important C libraries
 
 ## Shell 
 ### File Descriptor for redirection
