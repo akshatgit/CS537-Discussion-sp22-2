@@ -2,7 +2,7 @@
 
 The plan for this week:
 - [Recap](https://github.com/akshatgit/CS537-Discussion-sp22-2/tree/main/week-3#how-xv6-starts): How xv6 starts
-- [Recap](https://github.com/akshatgit/CS537-Discussion-sp22-2/tree/main/week-3#scheduler-logic-in-xv6): Scheduler Logic in xv6
+- [Recap](https://github.com/akshatgit/CS537-Discussion-sp22-2/tree/main/week-3#scheduler-logic-in-xv6): Scheduler Logic in xv6, discussion video by [Remzi](https://www.youtube.com/watch?v=eYfeOT1QYmg)
 - How to approach P2-A?
 - `sleep()`: is not really just sleeping 
 
