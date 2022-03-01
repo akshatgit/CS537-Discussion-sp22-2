@@ -7,10 +7,9 @@ The plan for this week:
 - `sleep()`: is not really just sleeping 
 
 ## How to approach P2-A?
-- Implement easy syscalls first
-- - For e.g. Implement `settickets`, `srand` and `getpinfo` first. 
+- Implement easy syscalls first: For e.g. Implement `settickets`, `srand` and `getpinfo` first. 
 - Test each part independently. 
-- - Create custom test user applications. For e.g. when you implement the first 3 syscalls, create a C file, spawn a child process with `fork`, set it's tickets and proc table details using `getpinfo`. 
+- - Create custom test user applications. For e.g. when you implement the first 3 syscalls, create a C file, spawn a child process with `fork`, set it's tickets(`settickets`) and fetch proc table details using `getpinfo`. 
 - - Debug any issue with GDB (Can't stress this more!). 
 - Start Early! (Biggest Hint!)
 
