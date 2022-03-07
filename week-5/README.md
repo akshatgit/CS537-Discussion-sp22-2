@@ -242,11 +242,8 @@ wakeup1(void *chan)
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
     if(p->state == SLEEPING && p->chan == chan) {
       // Add more checking to see are we really going to wake this process up
-      if (chan == &ticks) { // this process waits on ticks... it could be put to sleep by sys_sleep
-         MORE_CHECKING();
-      } else {
-         p->state = RUNNABLE;
-      }
+      if(p->state == SLEEPING && p->chan == chan)
+      p->state = RUNNABLE;
     }
 }
 ```
