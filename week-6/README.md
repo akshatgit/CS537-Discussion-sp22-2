@@ -5,6 +5,7 @@ The plan for this week:
 - Backslash zero - `\0`.
 - `libpthread`: thread library in C
 - Simple Pthreads doing useful work
+- Simple Map Reduce [Example](https://medium.com/edureka/mapreduce-tutorial-3d9535ddbe7c)
 
 
 ## Backslash zero - `\0`.
@@ -164,5 +165,6 @@ Step 1 : Compile programm for t1
 Step 2 : Run it.
 
 `./t1`
+
 
 
