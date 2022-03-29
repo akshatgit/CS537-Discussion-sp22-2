@@ -12,8 +12,7 @@ MapReduce is a programming model and an associated implementation for processing
 
 In simple words, since one machine cannot fit all data in memory, we’d like multiple machines to split work among themselves and operate on portions of data at a time so as to generate required output.  We’d go over all phases listed below one by one to discuss what each phase does:
 
-![](/Users/hsagar/Downloads/Map Reduce Abstarct.png)
-
+![](Abstract.png)
 
 ### Map Phase:
 
@@ -44,7 +43,8 @@ Map phase : File F1 has C, A, B, A and F2 has C, B, A, A. M1 thread reads all en
 Sort phase : Simply sort all entries inside a partition. Note that all B’s are before C’s in pairtion P2.
 
 Reduce phase : Reducer thread will pick one key at a time and run the user-provided reduction function on it. Note that reducer thread R2 will first pick key B, run reduction function on it and then pick key C and run reduction function on it. That’s why we have two ovals in R2 indicating that it picks one key at a time.
-![](/Users/hsagar/Downloads/Map Reduce Example.png)
+
+![](Example.png)
 
 
 ## Partitioning
