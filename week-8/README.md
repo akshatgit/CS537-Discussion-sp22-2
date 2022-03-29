@@ -129,14 +129,15 @@ fork(void)
 ```
 Take special care not to copy everything!
 
+Hints:
 How is a thread different from a child process?
-- What is shared?
-- Arguments
-- Point of execution
-- Redturn value
+- What is shared? Heap vs Stack
+- Arguments?
+- Point of execution: Function vs next instruction
+- Redturn value: exit vs function end
 
 Where will args1, args2, fcn, will go?
-Hint: stack? 
+More Hint: stack? 
 
 
 `join()` start guide:
