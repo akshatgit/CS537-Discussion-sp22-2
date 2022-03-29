@@ -35,6 +35,17 @@ In simple words, since one machine cannot fit all data in memory, we’d like mu
 
 2. Each reducer thread will first pick a key and read intermediate output entries of a key. It will run it’s reduction function on a key. Since Reducer function is supplied as argument to your library, we - as library developers have no control over how final output is consumed.
 
+### Example
+
+Now, let’s have a look at a concrete example - word count and see how this abstraction works with this example.
+
+Map phase : File F1 has C, A, B, A and F2 has C, B, A, A. M1 thread reads all entries from F1, gets the index of each key(A, B or C) from MR_DefaultHashPartition and pushes intermediate outputs to partition 1 or 2. Note that all entries of A are in partition P1, all entries of B are in partition P2 and all entries of C are in partition P3
+
+Sort phase : Simply sort all entries inside a partition. Note that all B’s are before C’s in pairtion P2.
+
+Reduce phase : Reducer thread will pick one key at a time and run the user-provided reduction function on it. Note that reducer thread R2 will first pick key B, run reduction function on it and then pick key C and run reduction function on it. That’s why we have two ovals in R2 indicating that it picks one key at a time.
+![](/Users/hsagar/Downloads/Map Reduce Example.png)
+
 
 ## Partitioning
 
@@ -168,7 +179,7 @@ wait(void)
 }
 ```
 
-We can have multiple threads. YOu need to pay special attention not to free memory of the parent process.
+We can have multiple threads. You need to pay special attention not to free memory of the parent process.
 
 
 References:
