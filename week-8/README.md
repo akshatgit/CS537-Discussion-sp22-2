@@ -129,6 +129,12 @@ fork(void)
 ```
 Take special care not to copy everything!
 
+How is a thread different from a child process?
+- What is shared?
+- Arguments
+- Point of execution
+- Redturn value
+
 Where will args1, args2, fcn, will go?
 Hint: stack? 
 
