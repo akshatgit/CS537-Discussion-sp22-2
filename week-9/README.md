@@ -131,12 +131,12 @@ Since we want clone to begin execution of user-provided function, thus Clone sys
 - Argument 1 passed to clone.
 - Argument 2 passed to clone.
 
-![alt text](img1.png)
+![alt text](img1.jpg)
 ## Important things to know before coding
 
 - Clearly, proc structure needs to be modified. Now, one should think about what to keep in stack. You may want to keep thread_count, user-malloced stack pointer in proc structure. If you’re thinking what is user-malloced stack pointer, it is the one being provided to clone syscall.
 - Why does join syscall has double pointer to stack as argument but clone syscall only has a pointer to stack as argument? This is because we’d like join syscall to fill stack pointer for us. thread_create will create stack and supply stack to clone syscall.
-![alt text](img2.png)
+![alt text](img2.jpg)
 - How to page-align stack in thread_create(piazza)? One way is to allocate 2 * page size memory, see how far base of stack is from page boundary(by modulating with page size) and move your pointer by that amount.
 
 
