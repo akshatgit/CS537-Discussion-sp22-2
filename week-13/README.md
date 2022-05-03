@@ -183,13 +183,13 @@ struct ext2_inode {
  `i_mode` determines the type and access rights of a file. Possible file types are listed below. For each file type is defined a macro (sys/stat.h) that can be used to test for that specific file type.
 
 ```table
-Type		Macro
+Type			Macro
 Regular file		S_ISREG(m)
 Directory 		S_ISDIR(m)
 Character Device  	S_ISCHR(m)
 Block Device		S_ISBLK(m)
-Fifo		S_ISIFO(m)
-Socket		S_ISSOCK(m)
+Fifo			S_ISIFO(m)
+Socket			S_ISSOCK(m)
 Symbolic Link		S_ISLNK(m)
 ```
 
@@ -261,12 +261,12 @@ read(fd, block, block_size);                         /* read block from disk*/
 size = 0;                                            /* keep track of the bytes read */
 entry = (struct ext2_dir_entry_2 *) block;           /* first entry in the directory */
 while(size < inode->i_size) {
-		char file_name[EXT2_NAME_LEN+1];
-		memcpy(file_name, entry->name, entry->name_len);
-		file_name[entry->name_len] = 0;              /* append null char to the file name */
-		printf("%10u %s\n", entry->inode, file_name);
-		entry = (void*) entry + entry->rec_len;      /* move to the next entry */
-		size += entry->rec_len;
+	char file_name[EXT2_NAME_LEN+1];
+	memcpy(file_name, entry->name, entry->name_len);
+	file_name[entry->name_len] = 0;              /* append null char to the file name */
+	printf("%10u %s\n", entry->inode, file_name);
+	entry = (void*) entry + entry->rec_len;      /* move to the next entry */
+	size += entry->rec_len;
 }
 ```
 The code above reads the first data block of a directory from disk. The block is stored in the block array. As explained earlier, this block contains a list of the directory's entries. The problem is that entries in this list have a variable size. This is the reason why we cannot just read the data block into an array of struct `ext2_dir_entry_2` elements.
