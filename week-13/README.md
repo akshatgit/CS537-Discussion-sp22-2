@@ -1,4 +1,4 @@
-# Week - 12 : Ext 2 FS
+# Week - 13 : Ext 2 FS
 
 ## Basics 
  In the following example, we have taken a 1.44MB floppy disk. We will use the same device in our examples later. 
