@@ -163,17 +163,17 @@ Inodes are numbered starting from 1. An inode is defined as a struct `ext2_inode
 
 ```C
 struct ext2_inode {
-		__u16   i_mode;         /* File type and access rights */
-		__u16   i_uid;          /* Low 16 bits of Owner Uid */
-		__u32   i_size;         /* Size in bytes */
-		__u32   i_atime;        /* Access time */
-		__u32   i_ctime;        /* Creation time */
-		__u32   i_mtime;        /* Modification time */
-		__u32   i_dtime;        /* Deletion Time */
-		__u16   i_gid;          /* Low 16 bits of Group Id */
-		__u16   i_links_count;  /* Links count */
-		__u32   i_blocks;       /* Blocks count */
-		__u32   i_flags;        /* File flags */
+	__u16   i_mode;         /* File type and access rights */
+	__u16   i_uid;          /* Low 16 bits of Owner Uid */
+	__u32   i_size;         /* Size in bytes */
+	__u32   i_atime;        /* Access time */
+	__u32   i_ctime;        /* Creation time */
+	__u32   i_mtime;        /* Modification time */
+	__u32   i_dtime;        /* Deletion Time */
+	__u16   i_gid;          /* Low 16 bits of Group Id */
+	__u16   i_links_count;  /* Links count */
+	__u32   i_blocks;       /* Blocks count */
+	__u32   i_flags;        /* File flags */
 	...
 	__u32   i_block[EXT2_N_BLOCKS];  /* Pointers to blocks */
 	...
@@ -182,14 +182,14 @@ struct ext2_inode {
 
  `i_mode` determines the type and access rights of a file. Possible file types are listed below. For each file type is defined a macro (sys/stat.h) that can be used to test for that specific file type.
 
-```
-Type				Macro
+```table
+Type		Macro
 Regular file		S_ISREG(m)
-Directory 			S_ISDIR(m)
+Directory 		S_ISDIR(m)
 Character Device  	S_ISCHR(m)
 Block Device		S_ISBLK(m)
-Fifo				S_ISIFO(m)
-Socket				S_ISSOCK(m)
+Fifo		S_ISIFO(m)
+Socket		S_ISSOCK(m)
 Symbolic Link		S_ISLNK(m)
 ```
 
@@ -235,14 +235,14 @@ struct ext2_dir_entry_2 {
  The file_type field indicates what kind of file the entry is referring to. Possible values are:
 ```
 file_type	Description
-0			Unknown
-1			Regular File
-2			Directory
-3			Character Device
-4			Block Device
-5			Named pipe
-6			Socket
-7			Symbolic Link
+0	Unknown
+1	Regular File
+2	Directory
+3	Character Device
+4	Block Device
+5	Named pipe
+6	Socket
+7	Symbolic Link
 ```
 Each entry has a variable size depending on the length of the file name. The maximum length of a file name is `EXT2_NAME_LEN`, which is usually 255. The name_len field stores the length of the file name, while `rec_len` stores the total size of the entry and is used to locate the next entry in the list. 
 
