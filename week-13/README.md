@@ -235,14 +235,14 @@ struct ext2_dir_entry_2 {
  The file_type field indicates what kind of file the entry is referring to. Possible values are:
 ```
 file_type	Description
-0	Unknown
-1	Regular File
-2	Directory
-3	Character Device
-4	Block Device
-5	Named pipe
-6	Socket
-7	Symbolic Link
+0		Unknown
+1		Regular File
+2		Directory
+3		Character Device
+4		Block Device
+5		Named pipe
+6		Socket
+7		Symbolic Link
 ```
 Each entry has a variable size depending on the length of the file name. The maximum length of a file name is `EXT2_NAME_LEN`, which is usually 255. The name_len field stores the length of the file name, while `rec_len` stores the total size of the entry and is used to locate the next entry in the list. 
 
