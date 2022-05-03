@@ -276,7 +276,9 @@ The entry pointer points to the current entry in the directory. The file name of
 Finally, the position of the following entry in the list is given by `entry->rec_len`. This field indicates the length in bytes of the current entry record. Therefore, the next entry is located at address `(void*) entry + entry->rec_len`.
 
 **HINT for deleted files/directories**
+```
 Directory entry for un-deleted files can be traversed using the above method. How to get the directory entry for deleted file? Maybe use `sizeof` to compute size of one entry to reach deleted entry.
+```
 
 Notice that the code above only works if the size of the directory is less than a block. If the entries list takes more than one block, the program will crash. 
 
