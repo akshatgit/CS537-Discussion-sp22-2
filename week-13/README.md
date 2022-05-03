@@ -217,7 +217,7 @@ Directory entries in the inode table require special attention. To test if an in
 ```CPP    
 if (S_ISDIR(inode.i_mode)) 
 ```
- In the case of directory entries, the data blocks pointed by `i_block[]` contain a list of the files in the directory and their respective inode numbers. 
+In the case of directory entries, the data blocks pointed by `i_block[]` contain a list of the files in the directory and their respective inode numbers. 
 
 ![alt text](pics/dir_entry.png)
 
@@ -269,3 +269,36 @@ while(size < inode->i_size) {
 		size += entry->rec_len;
 }
 ```
+The code above reads the first data block of a directory from disk. The block is stored in the block array. As explained earlier, this block contains a list of the directory's entries. The problem is that entries in this list have a variable size. This is the reason why we cannot just read the data block into an array of struct `ext2_dir_entry_2` elements.
+
+The entry pointer points to the current entry in the directory. The file name of the entry is copied from `entry->name` into file_name so that a null character can be appended to it. The inode and name of the file is then displayed.
+
+Finally, the position of the following entry in the list is given by `entry->rec_len`. This field indicates the length in bytes of the current entry record. Therefore, the next entry is located at address `(void*) entry + entry->rec_len`.
+
+Notice that the code above only works if the size of the directory is less than a block. If the entries list takes more than one block, the program will crash. 
+
+[`ext2list.c`](ext2list.c) lists the contents of the root directory of the floppy disk.
+
+### Locating a file
+
+Locating the data blocks belonging to a file implies locating its inode in the inode table first. The inode of the desired file is generally not known at the time the open operation is issued. What we know is the path of the file. For example:
+
+```CPP
+int fd = open("/home/ealtieri/hello.txt", O_RDONLY);
+```
+
+The desired file is hello.txt, while its path is /home/ealtieri/hello.txt.
+
+To find out the inode belonging to the file we first need to descend through its path, starting from the root directory, until we reach the file's parent directory. At this point we can locate the `ext2_dir_entry_2` entry corresponding to hello.txt and then its inode number.
+locate
+
+![alt text](pics/ext2_locate.png)
+
+
+Once the inode of the file is known, the data blocks belonging to the hello.txt are specified by the `inode.block[]` array.
+
+The root directory is always located at inode 2. 
+
+References: 
+- http://www.science.smith.edu/~nhowe/Teaching/csc262/oldlabs/ext2.html
+- https://www.nongnu.org/ext2-doc/ext2.html
