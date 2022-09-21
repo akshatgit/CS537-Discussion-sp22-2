@@ -1,9 +1,3 @@
-# COMP SCI 537 Discussion Week 2
-
-## Topics:
-- xv6 and GDB
-- Syscalls Continued..
-
 ## xv6 and GDB
 To run xv6 with gdb: in one window
 
